@@ -1,0 +1,9 @@
+ERROR:root:Failed to create object: University location must be a string.
+INFO:root:Customer: PA1234B, removed sucessfully.
+INFO:root:Customer: PA1234B, removed sucessfully.
+INFO:root:Customer: PA1234B, removed sucessfully.
+INFO:root:Customer: PA1234B, removed sucessfully.
+INFO:root:Customer: PA1234B, removed sucessfully.
+INFO:root:Customer: PA1234B, removed sucessfully.
+INFO:root:Customer: PA1234B, removed sucessfully.
+INFO:root:Customer: PA1234B, removed sucessfully.
