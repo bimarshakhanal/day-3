@@ -1,24 +1,27 @@
 class ConfigurationManager:
+    '''Singeleton class to manage configuration file.'''
     _instance = None
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(ConfigurationManager, cls).__new__(cls, *args, **kwargs)
+            cls._instance = super(ConfigurationManager, cls).__new__(
+                cls, *args, **kwargs)
             cls._instance._configurations = {}
             cls._instance._load_configurations()
         return cls._instance
 
     def _load_configurations(self):
         try:
-            with open('config.txt', 'r') as file:
+            with open('config.txt', 'r', encoding='utf-8') as file:
                 for line in file:
                     key, value = line.strip().split('=')
                     self._configurations[key.strip()] = value.strip()
         except FileNotFoundError:
             print("Configuration file not found.")
-    
+
     def get_configuration(self, key):
         return self._configurations.get(key)
+
 
 # Example usage:
 config_manager1 = ConfigurationManager()

@@ -1,20 +1,26 @@
 
 from abc import ABC, abstractmethod
 
-class Account:
-  """
-  Abstract base class representing a generic bank account.
-  """
-  def __init__(self, balance):
-    self.balance = balance
 
-  def withdraw(self, amount):
+class Account(ABC):
     """
-    Abstract method for withdrawing funds, to be implemented by subclasses.
+    Abstract base class representing a generic bank account.
     """
-    pass
+
+    def __init__(self, balance):
+        self.balance = balance
+
+    @abstractmethod
+    def withdraw(self, amount):
+        """
+        Abstract method for withdrawing funds, to be implemented by subclasses.
+        """
+        pass
+
 
 class SavingsAccount(Account):
+    '''Concrete class representing saving account'''
+
     def __init__(self, balance) -> None:
         super().__init__(balance)
 
@@ -27,7 +33,10 @@ class SavingsAccount(Account):
         else:
             print("Insufficient funds!")
 
+
 class CheckingAccount(Account):
+    '''Concrete class representing checking account'''
+
     def __init__(self, balance, overdraft_limit):
         super().__init__(balance)
         self.overdraft_limit = overdraft_limit
@@ -40,10 +49,13 @@ class CheckingAccount(Account):
         else:
             print("Exceeds overdraft limit or insufficient funds!")
 
+
 def perform_bank_actions(account):
+    '''Function to perform bank actions'''
     account.withdraw(100)
     account.withdraw(200)
     account.withdraw(500)
+
 
 if __name__ == "__main__":
     # Creating instances of SavingsAccount and CheckingAccount
